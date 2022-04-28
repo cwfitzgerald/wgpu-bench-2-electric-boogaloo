@@ -1,0 +1,19 @@
+[package]
+name = "wgpu-bench"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dev-dependencies]
+criterion = { version = "0.3.5", features = ["html_reports"] }
+pollster = "0.2"
+wgpu = { git = "https://github.com/gfx-rs/wgpu.git", rev = "ebca329" }
+
+[[bench]]
+name = "tracking"
+harness = false
+
+[profile.bench]
+debug = true
+lto = "fat"
